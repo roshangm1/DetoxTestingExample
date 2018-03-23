@@ -15,6 +15,8 @@ import {
   FlatList
 } from 'react-native';
 
+import {Counter} from './Counter';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -40,9 +42,8 @@ export default class App extends Component<Props> {
           Welcome to React Native!
         </Text>
       
-        <Text style={styles.instructions} testID={"runningState"}>
-          {this.state.buttonPressed.toString()}
-        </Text>
+        <Counter value ={this.state.buttonPressed} style={styles.instructions} testID={"runningState"} />
+       
         <Button title ={"startButton"} onPress = {() => this.handleButtonPress()} testID={"startButton"} />
           <TextInput testID="input" style={styles.input} />
 
