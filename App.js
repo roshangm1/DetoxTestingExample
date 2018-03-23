@@ -41,10 +41,13 @@ export default class App extends Component<Props> {
         <Text testID ={"welcome"} style={styles.welcome}>
           Welcome to React Native!
         </Text>
-      
-        <Counter value ={this.state.buttonPressed} style={styles.instructions} testID={"runningState"} />
-       
-        <Button title ={"startButton"} onPress = {() => this.handleButtonPress()} testID={"startButton"} />
+        
+        {/* if multiple view of same TESTID*/}
+        <View testID={'counterContainer'}> 
+          <Counter value ={this.state.buttonPressed} style={styles.instructions} testID={"runningState"} />
+          <Button title ={"Start"} onPress = {() => this.handleButtonPress()} testID={"startButton"} />
+          </View>
+
           <TextInput testID="input" style={styles.input} />
 
           <View style={styles.listContainer}>
@@ -55,6 +58,9 @@ export default class App extends Component<Props> {
 
             />
           </View>
+
+          <Button title ={"Start"} onPress = {() => this.handleButtonPress()} testID={"startButton"} />
+
       </View>
     );
   }

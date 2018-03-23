@@ -15,13 +15,13 @@ describe('App Screen', () => {
 
   it('should count to 1 if pressed once', async () => {
     await expect(element(by.id('runningState'))).toHaveText('0');
-    await element(by.id('startButton')).tap();
+    await element(by.id('startButton').withAncestor(by.id('counterContainer'))).tap();
     await expect(element(by.id('runningState'))).toHaveText("1");
   })
 
     it('should count to 4 if pressed 4 times', async () => {
     await expect(element(by.id('runningState'))).toHaveText('0');
-    await element(by.id('startButton')).multiTap(4);
+    await element(by.id('startButton').withAncestor(by.id('counterContainer'))).multiTap(4);
     await expect(element(by.id('runningState'))).toHaveText("4");
   })
   
@@ -41,7 +41,7 @@ describe('App Screen', () => {
     await element(by.id('list')).scrollTo('bottom')
   })
 
-  it('should scroll till list end', async () => {
+  it('should scroll till list end with swipe', async () => {
     await element(by.id('list')).swipe('up', 'slow')
   })
 })
